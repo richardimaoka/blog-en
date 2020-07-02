@@ -3,6 +3,9 @@ import Layout from '../components/layout'
 import Date from '../components/date'
 import { getAllPostIds, getPostData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
+import unified from 'unified'
+import parse from 'remark-parse'
+import remark2react from 'remark-react'
 
 export default function Post({ postData }) {
   return (
@@ -15,7 +18,14 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div>
+          {
+            unified()
+              .use(parse)
+              .use(remark2react)
+              .processSync(postData.markdown).result
+          }
+        </div>
       </article>
     </Layout>
   )
