@@ -5,7 +5,9 @@ import { getAllPostIds, getPostData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
 import unified from 'unified'
 import parse from 'remark-parse'
-import remark2react from 'remark-react'
+import remark2rehype from 'remark-rehype'
+import highlight from 'rehype-highlight'
+import rehype2react from 'rehype-react'
 
 export default function Post({ postData }) {
   return (
@@ -22,7 +24,11 @@ export default function Post({ postData }) {
           {
             unified()
               .use(parse)
-              .use(remark2react)
+              .use(remark2rehype)
+              .use(highlight)
+              // since highlight works on text, not AST, the step following highlight should be
+              // rehpye-react (text -> React), not remark-react (AST -> React)
+              .use(rehype2react) 
               .processSync(postData.markdown).result
           }
         </div>
