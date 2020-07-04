@@ -1,11 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import getConfig from 'next/config'
 import Date from '../components/date'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 
 export default function Home({ allPostsData }){
+  const { publicRuntimeConfig = {} } = getConfig() || {}
+  const { basePath } = publicRuntimeConfig
   return (
     <Layout home>
       <Head>
@@ -15,7 +18,7 @@ export default function Home({ allPostsData }){
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href="/[id]" as={`/${id}`}>
+              <Link href="/[id]" as={`${basePath}/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
