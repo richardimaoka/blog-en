@@ -10,7 +10,7 @@
 
 # next.js
 /.next/
-# /out/ Deploying to GitHub Pages requires the `out` directory in git
+/out/
 
 # production
 /build
