@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import getConfig from 'next/config'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
@@ -7,12 +6,10 @@ import Link from 'next/link'
 export const siteTitle = 'Akka, Concurrency, etc.'
 
 export default function Layout({ children, home }) {
-  const { publicRuntimeConfig = {} } = getConfig() || {};
-  const { basePath } = publicRuntimeConfig;
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href={basePath + "/favicon.ico"} />
+        <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -32,7 +29,7 @@ export default function Layout({ children, home }) {
             <h1 className={utilStyles.heading2Xl}>{siteTitle}</h1>
             <div className={utilStyles.bio}>
               <img
-                src={basePath + "/images/profile.jpg"}
+                src="/images/profile.jpg"
                 alt={`Richard Imaoka`}
                 className={utilStyles.biopic}
               />
@@ -46,7 +43,7 @@ export default function Layout({ children, home }) {
         ) : (
           <>
             <h2 className={utilStyles.headingLg}>
-              <Link href={basePath + "/"}>
+              <Link href="/">
                 <a className={utilStyles.colorInherit}>{siteTitle}</a>
               </Link>
             </h2>
@@ -56,7 +53,7 @@ export default function Layout({ children, home }) {
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href={basePath + "/"}>
+          <Link href="/">
             <a>← Back to home</a>
           </Link>
         </div>
