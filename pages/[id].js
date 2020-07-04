@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
 import Date from '../components/date'
@@ -14,6 +15,7 @@ export default function Post({ postData }) {
     <Layout>
       <Head>
         <title>{postData.title}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/agate.min.css"></link>
       </Head>
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
@@ -25,10 +27,11 @@ export default function Post({ postData }) {
             unified()
               .use(parse)
               .use(remark2rehype)
+              // since highlight works on text, not AST
+              // we use rehpye-react (text -> React),
+              // not remark-react (AST -> React)
               .use(highlight)
-              // since highlight works on text, not AST, the step following highlight should be
-              // rehpye-react (text -> React), not remark-react (AST -> React)
-              .use(rehype2react) 
+              .use(rehype2react, {createElement: React.createElement}) 
               .processSync(postData.markdown).result
           }
         </div>

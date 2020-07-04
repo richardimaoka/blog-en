@@ -8,10 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.10.4",
     "date-fns": "^2.14.0",
     "gray-matter": "^4.0.2",
-    "next": "9.3.5",
+    "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "rehype-highlight": "^4.0.0",
