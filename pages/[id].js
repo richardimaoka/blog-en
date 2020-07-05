@@ -31,7 +31,10 @@ export default function Post({ postData }) {
               // we use rehpye-react (text -> React),
               // not remark-react (AST -> React)
               .use(highlight)
-              .use(rehype2react, {createElement: React.createElement}) 
+              .use(rehype2react, {
+                createElement: React.createElement,
+                allowDangerousHtml: true //allow HTML tags, like <iframe> embed in markdown
+              }) 
               .processSync(postData.markdown).result
           }
         </div>
