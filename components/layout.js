@@ -9,6 +9,16 @@ export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111892799-2"></script>
+        <script 
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    
+                    gtag('config', 'UA-111892799-2');`
+          }}
+        />
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
