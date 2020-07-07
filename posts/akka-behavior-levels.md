@@ -5,7 +5,7 @@ date: "2018-02-26T12:31:08.000+0900"
 
 ## Overview
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/hHNmGxf7Mwc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/hHNmGxf7Mwc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 As we went through the Akka internal behavior in previous articles, let's review it from a high/conceptual level to a low/internal level where you see an Akka application as a huge `ForkJoinTask` application (although it doesn't use fork-join mechanism).
 
@@ -18,7 +18,7 @@ Previous articles related to this post are here:
 
 ## The highest level: Actors pass messages
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/x5GEmjyJD2U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/x5GEmjyJD2U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 If you ever heard of Akka, or an actor model in general, you might know that actors, which are minimal components consisting of your entire application, communicate to each other by passing messages.
 
@@ -26,7 +26,7 @@ This is usually what people would mention when they try to explain the actor mod
 
 ## The second level: Actor's ! and receive methods
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/FNlqhNrKsLQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/FNlqhNrKsLQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 The next level touches something specific to Akka. If you have experience programming an application using Akka, you would know that Akka provides:
 
@@ -41,7 +41,7 @@ Let’s go to the next level for more serious Akka users. We are going to look a
 
 ## The third level: MessageQueue
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/o0UtYvGacWQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/o0UtYvGacWQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 A `MessageQueue` in Akka is something sits in-between your sender `Actor` and the receiver `Actor`. 
 
@@ -55,7 +55,7 @@ So, Akka's approach is to put concurrency concerns within `MessageQueue` which A
 
 ## The second-lowest level: Dispatcher and ForkJoinTask
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/4n1gCDtUsDI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/4n1gCDtUsDI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 Now you know that Akka `Actor`s communicate with each other via `MessageQueue`, but how does it actually use threads to execute the code inside `Actor`? Still, something needs to execute your code inside `Actor` and that's a dedicated thread provided by the undelying `Dispatcher`.
 
@@ -69,7 +69,7 @@ That is illustrated in the above short video, and also discussed in these two ot
 
 ## The lowest level: Akka application as huge ForkJoinTask application
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/572YLMHWeT4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/572YLMHWeT4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 Taking a step further, looking at this from the `Executor`/`ExecutorService` point of view:
 

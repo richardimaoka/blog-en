@@ -8,7 +8,7 @@ date: "2018-01-17T01:31:00.000+0900"
 
 You can find the code and instruction to run the example at [GitHub](https://github.com/richardimaoka/resources/tree/master/event-adapter-tagging-cassandra).
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/cIau92KiNiE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/cIau92KiNiE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 ![cqlsh](/images/event-adapter-cassandra/cqlsh.png)
 
