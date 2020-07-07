@@ -9,9 +9,7 @@ You can find the code and instruction to run the example at [GitHub](https://git
 
 ### receiveCommand
 
-<p align="center">
-  <iframe width="640" height="360" src="https://www.youtube.com/embed/Jt9xDvYMNMc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/Jt9xDvYMNMc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 ```scala
   override def receiveCommand: Receive = {
@@ -26,9 +24,7 @@ Persistence actor receives a `Command` and generate an `Event`, then persist the
 
 ### receiveRecover
 
-<p align="center">
-  <iframe width="640" height="360" src="https://www.youtube.com/embed/xfsF0u0s3e4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</p>
+<p align="center"><iframe width="640" height="360" src="https://www.youtube.com/embed/xfsF0u0s3e4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 ```scala
   override def receiveRecover: Receive = {
