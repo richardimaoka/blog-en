@@ -4,11 +4,6 @@ import Layout from '../components/layout'
 import Date from '../components/date'
 import { getAllPostIds, getPostData } from '../lib/posts'
 import utilStyles from '../styles/utils.module.css'
-import unified from 'unified'
-import parse from 'remark-parse'
-import remark2rehype from 'remark-rehype'
-import highlight from 'rehype-highlight'
-import rehype2react from 'rehype-react'
 
 export default function Post({ postData }) {
   return (
@@ -22,22 +17,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div>
-          {
-            unified()
-              .use(parse)
-              .use(remark2rehype)
-              // since highlight works on text, not AST
-              // we use rehpye-react (text -> React),
-              // not remark-react (AST -> React)
-              .use(highlight)
-              .use(rehype2react, {
-                createElement: React.createElement,
-                allowDangerousHtml: true //allow HTML tags, like <iframe> embed in markdown
-              }) 
-              .processSync(postData.markdown).result
-          }
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   )

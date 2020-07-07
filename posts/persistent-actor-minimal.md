@@ -9,7 +9,9 @@ You can find the code and instruction to run the example at [GitHub](https://git
 
 ### receiveCommand
 
-<iframe width="480" height="270"" src="https://www.youtube.com/embed/Jt9xDvYMNMc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center">
+  <iframe width="480" height="270"" src="https://www.youtube.com/embed/Jt9xDvYMNMc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</p>
 
 ```scala
   override def receiveCommand: Receive = {
@@ -24,7 +26,9 @@ Persistence actor receives a `Command` and generate an `Event`, then persist the
 
 ### receiveRecover
 
-<iframe width="480" height="270" src="https://www.youtube.com/embed/xfsF0u0s3e4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p align="center">
+  <iframe width="480" height="270" src="https://www.youtube.com/embed/xfsF0u0s3e4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</p>
 
 ```scala
   override def receiveRecover: Receive = {
@@ -36,7 +40,7 @@ Persistence actor receives a `Command` and generate an `Event`, then persist the
 `receiveRecover` is called upon restarting a `PersistentActor` after exception was thrown.
 
 ## Instruction to run the example
-```
+```plaintext
 > git clone https://github.com/richardimaoka/resources.git
 > cd resources
 > cd persistent-actor-minimal
@@ -45,7 +49,7 @@ Persistence actor receives a `Command` and generate an `Event`, then persist the
 ```
 
 ## Output 
-```
+```plaintext
 [info] Running example.Main
 receiveCommand  : Received Command Command(1)
 persist callback: Event = Event(1) persisted
