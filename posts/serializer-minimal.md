@@ -9,9 +9,7 @@ You can find the code and instruction to run the example at [GitHub](https://git
 
 ### Akka Serialization
 
-<p align="center">
-  <iframe width="640" height="360"" src="https://www.youtube.com/embed/paclLCSv6NA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</p>
+<p align="center"><iframe width="640" height="360"" src="https://www.youtube.com/embed/paclLCSv6NA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 
 Akka doc's [serialization section](https://doc.akka.io/docs/akka/2.5/serialization.html) says:
 
