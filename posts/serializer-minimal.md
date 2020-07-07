@@ -75,7 +75,7 @@ serialization and deserialization of `MyMessage` instances.
 
 The below piece of code is the simplied version of what Akka does, when serializing a message.
 
-```
+```scala
 val system = akka.actor.ActorSystem("example", ConfigFactory.load())
 val original = MyMessage("aaa", "bbb")
 val serialization = SerializationExtension(system)
@@ -92,7 +92,7 @@ and you don't explicitly call `SerializationExtension(system)`, `toBinary` and `
 
 
 ## Instruction to run the example
-```
+```plaintext
 > git clone https://github.com/richardimaoka/resources.git
 > cd resources
 > cd serialize-minimal
@@ -104,7 +104,7 @@ and you don't explicitly call `SerializationExtension(system)`, `toBinary` and `
 
 Some `println` calls are inserted in the [complete example at GitHub](https://github.com/richardimaoka/resources/tree/master/serialize-minimal) to illustrate the behavior
 
-```
+```plaintext
 [info] Running example.Main
 Serializer for class example.MyMessage = example.MySerializer@254b2a65
 MySerializer: toBinary(MyMessage(aaa,bbb)) is called

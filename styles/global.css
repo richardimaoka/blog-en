@@ -30,3 +30,8 @@ img {
 code {
   font-size: 14px;
 }
+
+blockquote {
+  color: hsla(0,0%,0%,0.59);
+  font-style: italic;
+}
