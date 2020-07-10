@@ -5,7 +5,7 @@ date: "2018-10-01T12:31:08.000+0900"
 
 ## Akka HTTP Unmarshalling basics
 
-![](/images/akka-http-unmarshalling-basics/akka-http-unmarshalling.gif)
+![](/images/akka-http-unmarshalling-basics/akka-http-unmarshalling-basics.gif)
 
 In previous articles [(1)](../akka-http-marshalling-basics), [(2)](../akka-http-marshalling-details),
 I’ve explained how Akka HTTP marshalling works on the server side, which is used to convert a Scala object to the wire-format, typically JSON if we use Akka HTTP for API servers. Now this article introduces how the opposite, unmarshalling works.

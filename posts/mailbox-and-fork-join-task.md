@@ -8,10 +8,9 @@ date: "2018-02-25T01:31:08.000+0900"
 
 Thanks to Victor who immediately noticed I had wrong assumption about `ForkJoinTask` behavior in akka, now this article and videos were corrected.
 
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">Only one FJT should be created.</p>&mdash; ⎷ (@viktorklang) <a href="https://twitter.com/viktorklang/status/967066161899819008?ref_src=twsrc%5Etfw">2018年2月23日</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Only one FJT should be created.</p>&mdash; Lgd. Viktor Klang ꙮ (@viktorklang) <a href="https://twitter.com/viktorklang/status/967066161899819008?ref_src=twsrc%5Etfw">February 23, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">No worries! Actually, many years ago it did create many FJT (..or rather, Runnables).</p>&mdash; ⎷ (@viktorklang) <a href="https://twitter.com/viktorklang/status/967082002804609024?ref_src=twsrc%5Etfw">2018年2月23日</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">No worries! Actually, many years ago it did create many FJT (..or rather, Runnables).</p>&mdash; Lgd. Viktor Klang ꙮ (@viktorklang) <a href="https://twitter.com/viktorklang/status/967082002804609024?ref_src=twsrc%5Etfw">February 23, 2018</a></blockquote>
 
 ## Overview
 
@@ -184,7 +183,7 @@ and insert `println` calls [like this](https://github.com/richardimaoka/akka/com
 
 now you will see `akka-actor_2.12;2.5-SNAPSHOT` is built and stored under your `.ivy` directory.
 
-```
+```plaintext
 [info] :: delivering :: com.typesafe.akka#akka-actor_2.12;2.5-SNAPSHOT :: 2.5-SNAPSHOT :: integration :: Thu Feb 22 07:22:33 JST 2018
 [info] delivering ivy file to Users/username/akka/akka-actor/target/ivy-2.5-SNAPSHOT.xml
 [info]  published akka-actor_2.12 to Users/username/.ivy2/local/com.typesafe.akka/akka-actor_2.12/2.5-SNAPSHOT/poms/akka-actor_2.12.pom

@@ -13,7 +13,7 @@ In this article, I am going to show how to:
 
 I will set up a simple HTTP server step by step, which in the end works as follows. As you see below, we get different JSON returned dependent on the path.
 
-<img src="./high-level-api.gif" />
+<img src="/images/akka-http-quickstart/high-level-api.gif" />
 
 I will go through the steps in a way you can **quickly understand** the outcome from running the source code, and how it works, **WITHOUT downloading and running the source code yourself.**
 
@@ -73,7 +73,7 @@ Usually there is only one instance for each of them in an entire application. In
 **NOTE:** The below roughly illustrates the Akka technology stack cosisting of an Akka HTTP application.
 
 <p align="center">
-  <img src="./akka-layers.svg" alt="akka-layers" width="300px"/>
+  <img src="/images/akka-http-quickstart/akka-layers.svg" alt="akka-layers" width="300px"/>
 </p>
 
 - Akka HTTP is on top of the other two layers
@@ -501,7 +501,7 @@ Http().bindAndHandleAsync(requestHandler, "localhost", 8080)
 
 and we get this result.
 
-![low-level-api](/low-level-api.png)
+![low-level-api](/images/akka-http-quickstart/low-level-api.png)
 
 ## The intention of this article
 

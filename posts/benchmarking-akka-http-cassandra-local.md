@@ -253,7 +253,7 @@ val routes: Route =
 
 here is `application.conf`:
 
-```
+```plaintext
 akka {
   loggers = ["akka.event.slf4j.Slf4jLogger"]
 
@@ -272,7 +272,7 @@ As in the results we saw earlier, it became slower than 1. JSON marshalling/unma
 
 ## 3. Persistence to Cassandra
 
-![cassandra](cassandra.jpg)
+![cassandra](/images/benchmarking-akka-http-cassandra-local/cassandra.jpg)
 
 Finally we do real persistence. application.conf becomes this:
 

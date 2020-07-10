@@ -25,7 +25,7 @@ Let me firstly introduce so-called top-down and bottom-up approaches in terms of
 
 [Swagger Editor](https://editor.swagger.io/) is a browser based tool for editing the swagger specification file in json or yaml. For [Swagger codegen](https://github.com/swagger-api/swagger-codegen), it already officially supports a bunch of languages and frameworks,
 
-![swagger-codege-support](swagger-codegen-support.png)
+![swagger-codege-support](/images/swagger-akka-http/swagger-codegen-support.png)
 
  and also a lot of community plugins available for other frameworks.
 
@@ -127,12 +127,12 @@ schemes:
 
 which is (almost) same as that of [the Petstore sample](https://editor.swagger.io/) I modeled after. 
 
-![Sawgger-Editor-top](Swagger-Editor-top.png)
+![Sawgger-Editor-top](/images/swagger-akka-http/Swagger-Editor-top.png)
 
 
 Next, look at the `pet` endpoint. This is how the sample PetStore specification looks when you load it in Swagger Editor.
 
-![Sawgger-Editor-pet](Swagger-Editor-pet.png)
+![Sawgger-Editor-pet](/images/swagger-akka-http/Swagger-Editor-pet.png)
 
 To get the same spec as above, you need these annotations to be added at the class or trait level to give information across different HTTP methods, `POST`, `GET`, `PUT`, `PATCH` and `DELETE`.
 
@@ -240,7 +240,7 @@ Another thing I expected to just work fine earlier, but not avaialble at the mom
 
 Now, let's talk about how to generate the specification file with from the server code `@Annoation`s. You need to run the Akka HTTP web server, and access to a resource http://localhost:9999/api-docs/swagger.yaml (or swagger.json). 
 
-![swagger-spec-browser](swagger-spec-browser.png)
+![swagger-spec-browser](/images/swagger-akka-http/swagger-spec-browser.png)
 
 Yes, this is another interesting point, but it seems the conventional way in the JVM world to generate the swagger spec from server code's `@Annotation`, even in Java frameworks like [Spring](https://springfox.github.io/springfox/docs/current/#springfox-swagger-ui), is to run the web server and access to the rendered page. 
 
@@ -280,7 +280,7 @@ case class Tag(
 
 you don't need to add `@Annotation` to the case classes, but Swagger UI nicely generate this much of model definition. Note that the `Pet` case class has `category: Category` and `tags: Array[Tag]` parameters, but those case classes used in another case class are correctly and automatically handled by swagger spec generation.
 
-![swagger-model](swagger-model.png)
+![swagger-model](/images/swagger-akka-http/swagger-model.png)
 
 ### Summary of the current status
 
@@ -291,7 +291,7 @@ you don't need to add `@Annotation` to the case classes, but Swagger UI nicely g
 
 So if you still feel it is beneficial that the endpoint specification (`@Annotation`) being close to the Akka HTTP route implementation, rather than a separate .json/.yaml file, swagger-akka-http is the way to go. Otherwise, write and manage the specification manually.
 
-![annotation-next-to-code](annotation-next-to-code.png)
+![annotation-next-to-code](/images/swagger-akka-http/annotation-next-to-code.png)
 
 With these status and limitations we have seen, do we still want to introduce Swagger to an Akka HTTP based server? Let's take a step back and recap what benefits Swagger gives.
 
@@ -315,7 +315,7 @@ At http://petstore.swagger.io/ you can see the specification document for Swagge
 
 Also when you load your spec file in [Swagger Editor](https://editor.swagger.io/), it spots your specification errors like below. In fully manual workflow, it will be much more difficult to spot your mistakes in specification.
 
-![swagger-error](/swagger-error.png)
+![swagger-error](/images/swagger-akka-http/swagger-error.png)
 
 With the help of Swagger UI document generation, and clearly defined Swagger/Open API specification, the work of writing REST API specification became much more concrete (I wouldn't say it became "easy" though), and there are clearer learning paths avaialble to improve on API management. You can find a plenty of other Swagger speficitation examples out there which you can get inspiration from, and people have published lots of materials on how to write good specification in Swagger. This made a step forward in API specification writing, so that it became a managable job for an engineer from something like black magic done by a veteran craftman with 30 years of experience. Having a concrete tool available is a huge win, where you can focus on more detailed ways to leverage tools, rather than talking about "what a good design of your REST API is" in a vague fasion. (I believe as an engineer, you have seen such phenomena in many other areas - when good tools are available, things get traction and move forward.) Of course conceptual understanding of good design is a must, but good tooling is also a must for maintaining good design in practice.
 
