@@ -27,7 +27,7 @@ From the next section of this article, I will cover some CloudFormation specific
 
 ## VPC setup
 
-![](vpc-subnet.png)
+![](/images/techempower-cloudformation/vpc-subnet.png)
 
 To get started, let's define the VPC and its subnet. Eventually we will allocate EC2 instances within the subnet, but that'll be discussed later.
 
@@ -55,7 +55,7 @@ So far nothing complicated.
 
 ## Internet Gateway
 
-![](internet-gateway.png)
+![](/images/techempower-cloudformation/internet-gateway.png)
 
 The next thing to set up is the Internet Gateway. Without this, you cannot interact with EC2 instances in the VPC.
 
@@ -78,7 +78,7 @@ Note that you need an explicit `AWS::EC2::VPCGatewayAttachment`
 
 ## Route Table
 
-![](route-table.png)
+![](/images/techempower-cloudformation/route-table.png)
 
 ```yaml
 # Define Route Table, its Route, and associate the Route Table with the Subnet
@@ -104,7 +104,7 @@ SubnetRouteTableAssociation:
 
 `AWS::EC2::Route` is a routeing rule for the `AWS::EC2::RouteTable`. Please be noted that the default rule as in the below screenshot is already given, without defining it in CloudFormation. The default rule defines local traffic handling rule within the Subnet:
 
-![](route-table-screenshot.png)
+![](/images/techempower-cloudformation/route-table-screenshot.png)
 
 Also, similar to the Interget Gateway, you need an explicit association with the Subnet, `AWS::EC2::SubnetRouteTableAssociation`.
 
@@ -148,7 +148,7 @@ SecurityGropuIngressSSH:
 
 Here we have three `AWS::EC2::SecurityGroupIngress` rules, so the end result looks like this on AWS Console:
 
-![](security-group-screenshot.png)
+![](/images/techempower-cloudformation/security-group-screenshot.png)
 
 With CloudFormation, you typically define `AWS::EC2::SecurityGroupIngress` separately from `AWS::EC2::SecurityGroup`, and reference `SecurityGroup` from `SecurityGroupIngress` by:
 
@@ -158,7 +158,7 @@ GroupId: !Ref SecurityGroup
 
 You might have wondered why I had separate `AWS::EC2::SecurityGroupIngress`, and why I didn't put `SecurityGroupIngress` components inside `AWS::EC2::SecurityGroup`, which is described in the [official reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupingress). The reason why I suggested separate `AWS::EC2::SecurityGroupIngress` was that it allows you define self-referencing Security Group rule as below:
 
-![](self-referencing-security-group.png)
+![](/images/techempower-cloudformation/self-referencing-security-group.png)
 
 which is defined by `SecurityGropuIngressInternal` in the above template.
 
@@ -166,7 +166,7 @@ Security Group is an EC2-level concept, so in the next section, we associate the
 
 ## EC2 Instance
 
-![](ec2.png)
+![](/images/techempower-cloudformation/ec2.png)
 
 Finally let's set up EC2 instances. There are mainly three important things for EC2:
 

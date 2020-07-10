@@ -12,7 +12,7 @@ date: "2019-01-30T01:31:00.000+0900"
 
 [TechEmpower Web Framework Benchmarks](https://www.techempower.com/benchmarks/) are a collection of simple benchmarking results with [wrk](https://github.com/wg/wrk), and the code base to run the benchmark results. The benchmarking scenarios are simple, but they cover a comprehensive set of web frameworks and libraries. 
 
-![](techempower-screenshot.png)
+![](/images/techempower-on-aws/techempower-screenshot.png)
 
 > This is a performance comparison of many web application frameworks executing fundamental tasks such as JSON serialization, database access, and server-side template composition. 
 
@@ -24,7 +24,7 @@ For me, what is more interesting than the results themselves is the code base th
 
 Running the TechEmpower benchmarks for all the web frameworks takes few days to finish. So I chose h2o as a reference web framework, and ran the benchmark with [TechEmpower's code in GitHub](https://github.com/TechEmpower/FrameworkBenchmarks), on AWS. 
 
-![](three-containers.gif)
+![](/images/techempower-on-aws/three-containers.gif)
 
 As you can see in [Environment Details](https://frameworkbenchmarks.readthedocs.io/en/latest/Project-Information/Environment/#environment-details) in the documentation, the official benchmark runs are on 3-machine setup:
 
@@ -34,7 +34,7 @@ As you can see in [Environment Details](https://frameworkbenchmarks.readthedocs.
 
 Here's the AWS results I got, compared with the official results by TechEmpower:
 
-![](results-comparison-1.png)
+![](/images/techempower-on-aws/results-comparison-1.png)
 
 - Physical Hardware (official result): Self-hosted hardware called [Citrine](https://frameworkbenchmarks.readthedocs.io/en/latest/Project-Information/Environment/#environment-details)
 - Azure  (official result): D3v2 instances
@@ -42,7 +42,7 @@ Here's the AWS results I got, compared with the official results by TechEmpower:
 
 Somehow I got weird results for Multi-query and Data-update tests, so I only listed up JSON serialization, Single query, Fortunes, and Plaintext.
 
-![](results-comparison-2.png)
+![](/images/techempower-on-aws/results-comparison-2.png)
 
 
 The AWS results were noticeably different from Azure, but I didn't investigate the reason, because the specific results did not matter so much for me at this point.
@@ -57,17 +57,17 @@ As I said containers, yes, everything is docker-ized already by the TechEmpower 
 
 The wrk container was on one EC2 instance, the web server on another EC2, and the database on the other. However, there was actually one more t2.micro EC2 instance I used to `docker run` all the three containers **remotely**. So the actually EC2 setup was like below:
 
-![](techempower-detail.png)
+![](/images/techempower-on-aws/techempower-detail.png)
 
-![](aws-ec2-list.png)
+![](/images/techempower-on-aws/aws-ec2-list.png)
 
 In terms of the cloud computing instances, [the official environment setup description](https://www.techempower.com/benchmarks/#section=environment) says [Azure D3v2](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#d-series) was used.
 
-![](azure-d3v2.png)
+![](/images/techempower-on-aws/azure-d3v2.png)
 
 Looking at [AWS EC2 instance types](https://aws.amazon.com/ec2/instance-types/), I think the closest match was m5.xlarge, with the same 4 vCPUs.
 
-![](aws-m5xlarge.png)
+![](/images/techempower-on-aws/aws-m5xlarge.png)
 
 If you are familiar with AWS, before launching EC2, you should configure your VPC up to this point - Subnet, Security Groups, Route Table, etc. If you are not familiar with EC2 or VPC, please look at introductory materials. You can Google them up and there are a lot of them avaiable.
 
@@ -87,7 +87,7 @@ Once everything is done, it is as simple as executing the following command with
 
 Replace the IP addresses above with the EC2 private IPs you get on the AWS web console.
 
-![](private-ip.png)
+![](/images/techempower-on-aws/private-ip.png)
 
 (*Again, more detailed instructions [in the next article](../techempower-on-aws-detailed-steps)*)
 

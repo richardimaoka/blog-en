@@ -19,13 +19,13 @@ Before launching EC2, the first thing to set up is your VPC and associated Subne
 - a Route Table in the VPC, which can be like this:
 - a Security Group
 
-![](route-table.png)
+![](/images/techempower-on-aws-detailed-steps/route-table.png)
 
 The Routes should allow the local traffic so that benchmarking can be run on three-machine setup. You also need the SSH traffic goes through the route table, so the Routes for the Internet Gateway is necessary. 
 
 Also you should create a Security Group:
 
-![](security-group.png)
+![](/images/techempower-on-aws-detailed-steps/security-group.png)
 
 You need to enable SSH, and you'd better enable ICMP (Custom ICPM Rule) for ping for troubleshooting just in case. The source IP `219.***.***.***/32` is my local PC's public IP address. 
 
@@ -37,13 +37,13 @@ As the last note in the section, if you prefer a more secure environment, you ca
 
 Continued from the VPC setup, you now need to set up EC2. The first step is to choose AMI.
 
-![](2019-01-31_22h49_26.png)
+![](/images/techempower-on-aws-detailed-steps/2019-01-31_22h49_26.png)
 
 I chose the standard Amazon Linux 2 but other AMIs could work too. Amazon Linux 2 doesn't have docker installed by default, but it only requires a few extra steps to enable run the Docker daemon at startup.
 
 Next, choose the instance type. It should be `m5.xlarge` as in my previous article [Running TechEmpower Web Framework Benchmarks on AWS on my own](../techempower-on-aws/)
 
-![](aws-m5xlarge.png)
+![](/images/techempower-on-aws-detailed-steps/aws-m5xlarge.png)
 
 After that you should configure the instance. Choose
 - Number of instances = 3 (*for 3-machine setup*)
@@ -85,11 +85,11 @@ For more information about running docker at EC2 startup, see [How do I enable t
 
 After the instance configuration, you can skip over to the step 6, Security Group. Choose the security group you created earlier:
 
-![](2019-01-31_22h40_18.png)
+![](/images/techempower-on-aws-detailed-steps/2019-01-31_22h40_18.png)
 
 Actually I set up one more EC2 instance as a "controller" to execute the `docker run...` command remotely to the 3 EC2 instances I set up up to here. So the list of EC2 instances were:
 
-![](aws-ec2-list.png)
+![](/images/techempower-on-aws-detailed-steps/aws-ec2-list.png)
 
 The controller instance doesn't need to be `m5.xlarge` as it just sends `docker run` to remote EC2. (i.e.) you don't need to run the Docker daemon, but need a Docker client. Also you `git clone` the TechEmpower GitHub repo to run the benchmark startup script. So its user data can be this:
 

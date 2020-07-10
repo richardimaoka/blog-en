@@ -16,7 +16,7 @@ My last article covered how to run [TechEmpower Web Framework Benchmarks](https:
 
 In this article, I compare h2o, which I have been playing around on in the recent articles with akka-http, my favorite web framework. On the TechEmpower 17th round page, they are compared as follows:
 
-![](techempower-h2o-akka-http.png)
+![](/images/comparison-of-h2o-and-akka-http-linux/techempower-h2o-akka-http.png)
 
 It looks like akka-http isn't performing well compared to h2o for this benchmark and I'll investigate why, using Linux performance analysis tools. In the end I conclude that application-level tools like Java profilers would be needed for further insights, but I'll go as far as I can with the Linux tools.
 
@@ -89,11 +89,11 @@ The first command I executed was `top`. Below are the screenshots of the `top` c
 
 h2o:
 
-![](top-h2o.png)
+![](/images/comparison-of-h2o-and-akka-http-linux/top-h2o.png)
 
 akka-http:
 
-![](top-akka-http.png)
+![](/images/comparison-of-h2o-and-akka-http-linux/top-akka-http.png)
 
 To confirm if they are really CPU bound processes, let's look further with other commands.
 
@@ -101,7 +101,7 @@ To confirm if they are really CPU bound processes, let's look further with other
 
 `vmstat 1` (the argument `1` means that results are update every 1 second.) confirmed that these h2o and akka-http processes are CPU-bound. 
 
-![](vmstat-comparison.png)
+![](/images/comparison-of-h2o-and-akka-http-linux/vmstat-comparison.png)
 
 h2o:
 ```plaintext
